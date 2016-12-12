@@ -1,0 +1,47 @@
+extends ../layout
+
+block content
+  .container
+    h1.page-header Reserve Room 
+    
+    table.table.table-bordered
+      thead
+        tr
+          th 게시글 제목
+          th 요청자 이름
+          th 요청자 이메일
+          th 체크인
+          th 체크아웃
+          th 숙박인원
+          th 
+      tbody
+        each reserve in reserves
+          tr
+            td= reserve.postTitle
+            td= reserve.attenderName
+            td= reserve.attenderEmail
+            td= reserve.checkIn
+            td= reserve.checkOut
+            td= reserve.numberOfPerson
+            td   
+                div.form-actions
+                  a.btn.btn-default(type='submit') 승인
+                  | 
+                  a.btn.btn-default(href='/posts/reserveList/#{reserve._id}?_method=DELETE') 삭제
+                  //거절 삭제로 대체?
+
+  
+  //a.btn.btn-default(data-id=reserve.id, class='delete') 삭제
+    //-  form#deleteForm(style='display:none', method="POST")
+    //-                       
+    //-  script(type='text/javascript').
+    //-   $(".delete").click(function(e) {
+    //-       var id = $(e.currentTarget).data('id');
+    //-       if (confirm('정말 거절하시겠습니까?')) {
+    //-         $("#deleteForm").attr('action', "/posts/reserveList" + id + "?_method=DELETE").submit();          
+    //-       }
+    //-         return false;
+    //-       });
+    
+
+            

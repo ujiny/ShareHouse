@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+  .container
+    h1.page-header 예약하기
+    form(action = "/posts/reserve/#{post.id}", method='POST')
+      .form-group
+        label(for='checkin') 체크인
+        input.form-control(type='date', id='deadline', name='deadline')
+      .form-group
+        label(for='checkout') 체크아웃
+        input.form-control(type='date', id='deadline', name='deadline')
+      .form-group
+        label(for='guest') 숙박인원
+        input.form-control(type='guest', id='guest', name='guest', placeholder='--명', value=post.guest)    
+      div.form-actions
+        a.btn.btn-default(href='javascript:window.history.back();') 뒤로 
+        | 
+        button.btn.btn-primary(type='submit') 예약
+      //new 고치기
+
+ul.tasks
+if task.deadline
+      span.deadline= moment(task.deadline).format('YYYY-MM-DD')

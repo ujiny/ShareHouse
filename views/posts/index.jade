@@ -1,0 +1,49 @@
+extends ../layout
+
+block content
+  .container
+    h1.page-header 호스팅
+    //추가 
+    
+        
+    table.table.table-bordered
+      thead
+        tr
+          th 등록자ID
+          th 도시
+          th 날짜
+          th 조회수
+          th
+      tbody
+        each post in posts
+          tr
+            td= post.name
+            td
+              a(href='/posts/#{post.id}')= post.city
+            td= moment(post.createdAt).format('YYYY-MM-DD HH:mm:ss')
+            td= post.read
+            td  
+              if(currentUser.id==post.user || currentUser._id=="584c4ba96faaee0b9ca43c59")
+                a.btn.btn-xs.btn-default(href='/posts/#{post.id}/edit') 수정
+                | 
+                a.btn.btn-xs.btn-default(data-id=post.id, class='delete') 삭제
+    form(action = "/posts/cities", method='get')
+      .form-group
+        .form-actions
+          input(type='text', name = 'city', id = 'city', placeholder='도시명을 입력하세요')  
+          button.btn.btn-primary(type= 'submit') 검색
+    a.btn.btn-primary(href='/posts/new') 숙소정보 등록하기
+
+
+
+    form#deleteForm(style='display:none', method="POST")
+            
+    script(type='text/javascript').
+      $(".delete").click(function(e) {
+        var id = $(e.currentTarget).data('id');
+        if (confirm('정말 삭제하시겠습니까?')) {
+          $("#deleteForm").attr('action', "/posts/" + id + "?_method=DELETE").submit();          
+        }
+        return false;
+      });
+            

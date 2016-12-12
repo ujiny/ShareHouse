@@ -1,0 +1,14 @@
+extends layout
+
+block content
+//두줄추가
+h1= message
+h2= error.status
+
+  .container
+    .panel.panel-danger(style='margin-top:2em')
+      .panel-heading
+        h3.panel-title= message
+      .panel-body
+        p= error.status
+    pre #{error.stack}
