@@ -10,8 +10,8 @@ var schema = new Schema({
   post : {type: Schema.Types.ObjectId},
   numberOfPerson : {type: Number},
   attender: {type: Schema.Types.ObjectId},
-  checkIn: {type: Date},
-  checkOut: {type: Date}
+  checkIn: {type: String},
+  checkOut: {type: String}
 },{
   toJSON: { virtually: true},
   toObject: {virtually: true}
