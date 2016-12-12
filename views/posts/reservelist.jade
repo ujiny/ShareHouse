@@ -2,7 +2,7 @@ extends ../layout
 
 block content
   .container
-    h1.page-header Reserve Room 
+    h1.page-header 예약 Room 
     
     table.table.table-bordered
       thead
@@ -10,8 +10,8 @@ block content
           th 게시글 제목
           th 요청자 이름
           th 요청자 이메일
-          th 체크인
-          th 체크아웃
+          //- th 체크인
+          //- th 체크아웃
           th 숙박인원
           th 
       tbody
@@ -20,8 +20,8 @@ block content
             td= reserve.postTitle
             td= reserve.attenderName
             td= reserve.attenderEmail
-            td= reserve.checkIn
-            td= reserve.checkOut
+            //- td= reserve.checkIn
+            //- td= reserve.checkOut
             td= reserve.numberOfPerson
             td   
                 div.form-actions
