@@ -10,8 +10,8 @@ block content
           th 게시글 제목
           th 요청자 이름
           th 요청자 이메일
-          //- th 체크인
-          //- th 체크아웃
+          th 체크인
+          th 체크아웃
           th 숙박인원
           th 
       tbody
@@ -20,15 +20,15 @@ block content
             td= reserve.postTitle
             td= reserve.attenderName
             td= reserve.attenderEmail
-            //- td= reserve.checkIn
-            //- td= reserve.checkOut
+            td= reserve.checkIn
+            td= reserve.checkOut
             td= reserve.numberOfPerson
             td   
                 div.form-actions
                   a.btn.btn-default(type='submit') 승인
                   | 
                   a.btn.btn-default(href='/posts/reserveList/#{reserve._id}?_method=DELETE') 거절
-                  //거절 삭제로 대체?
+                
 
 
 
