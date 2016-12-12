@@ -294,6 +294,7 @@ console.log("***DSd******");
        next(err);
     }
     // /posts(index)로 다시 redirect해준다.
+     req.flash('danger','예약요청이 거절되었습니다.')
      res.redirect('back');
   });
 });
